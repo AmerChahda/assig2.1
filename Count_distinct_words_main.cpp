@@ -34,25 +34,32 @@ int main() {
 #include <vector>
 
 int main () {
-	int counter;
+	int counter=0;
 	std::string value;
-	std::vector<std::string>w;
-  std::cout << "Please, insert two values: "<<std::endl;
+	std::vector<std::string>word;
+  std::cout << "Please, insert your sentence: "<<std::endl;
 
   std::istream_iterator<std::string> eos;              // end-of-stream iterator
   std::istream_iterator<std::string> iit (std::cin);   // stdin iterator
 
-  w.push_back(*iit);
+  word.push_back(*iit);
   ++iit;
   ++counter;
   while(iit!=eos)
   {
 	  value=*iit;
-	 for (int i=0;i<=w.size();++i)
+	 for (int i=0;i<word.size();++i)
 	 {
-		 if(value!=w[i])
+		 if(value==word[i])
 		 {
-			 w.push_back(value);
+			 break;
+		 }
+		 else{
+			 if (i==(word.size()-1)){
+				 word.push_back(value);
+				 ++counter;
+			 }
+
 		 }
 	 }
 	 ++iit;
@@ -60,7 +67,6 @@ int main () {
 
 
 
-  std::cout << value << "  " << value << "\n";
 
   return 0;
 }

@@ -41,7 +41,7 @@ int main () {
 
   std::istream_iterator<std::string> eos;              // end-of-stream iterator
   std::istream_iterator<std::string> iit (std::cin);   // stdin iterator
-
+  std::cout<<"\n";
   word.push_back(*iit);
   ++iit;
   ++counter;
@@ -64,8 +64,10 @@ int main () {
 	 }
 	 ++iit;
   }
-
-
+std::cout<<"The total number of the distinct words are: "<<counter<<"\nThees words are: ";
+for(int i=0;i<word.size();i++){
+	std::cout<<word[i]<<"\t";
+}
 
 
   return 0;
